@@ -17,6 +17,8 @@
   color: #fff;
   margin: 0;
   position: absolute;
+  max-height: 200px;
+  overflow: hidden;
 }
 
 .Gif img {
