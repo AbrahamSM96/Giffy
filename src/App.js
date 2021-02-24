@@ -8,13 +8,15 @@ import StaticContext from "./context/StaticContext";
 import { Link, Route } from "wouter";
 import { GifsContextProvider } from "./context/GifsContext";
 
+import logo from "./logo.png";
+
 export default function App() {
   return (
     <StaticContext.Provider value={{ name: "ABRAHAM", sus: true }}>
       <div className="App">
         <section className="App-content">
           <Link to="/">
-            <img className="App-logo" alt="Giffy logo" src="/logo.png" />
+            <img className="App-logo" alt="Giffy logo" src={logo} />
           </Link>
           <GifsContextProvider>
             <Route component={Home} path="/" />
