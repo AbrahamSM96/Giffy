@@ -4,7 +4,7 @@ import ListOfGifs from "components/ListOfGifs";
 import TrendingSearches from "components/TrendingSearches";
 import { useGifs } from "hooks/useGifs";
 import SearchFrom from "components/SearchForm";
-
+import { Helmet } from "react-helmet";
 export default function Home() {
   const [path, pushLocation] = useLocation();
   const { loading, gifs } = useGifs();
@@ -20,12 +20,22 @@ export default function Home() {
   );
   return (
     <>
-      <SearchFrom onSubmit={handleSubmit} />
-      <h3 className="App-title">Última búsqueda</h3>
-      <ListOfGifs gifs={gifs} />
-      <h3 className="App-title">Los gifs más populares</h3>
-      <div className="App-category">
-        <TrendingSearches />
+      <Helmet>
+        <title>Home | Giffy</title>
+      </Helmet>
+      <header className="o-header">
+        <SearchFrom onSubmit={handleSubmit} />
+      </header>
+      <div className="App-wrapper">
+        <div className="App-main">
+          <div className="App-results">
+            <h3 className="App-title">Última búsqueda</h3>
+            <ListOfGifs gifs={gifs} />
+            <div className="App-category">
+              <TrendingSearches />
+            </div>
+          </div>
+        </div>
       </div>
     </>
   );

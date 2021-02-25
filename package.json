@@ -10,12 +10,14 @@
     "just-debounce-it": "^1.1.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
+    "react-helmet": "^6.1.0",
     "react-scripts": "4.0.2",
     "vercel": "^21.2.3",
     "web-vitals": "^1.1.0",
     "wouter": "^2.7.3"
   },
   "scripts": {
+    "deploy": "npm run test && vercel",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
