@@ -4,7 +4,8 @@ import ListOfGifs from "components/ListOfGifs";
 import { useGifs } from "hooks/useGifs";
 import useNearScreen from "hooks/useNearScreen";
 import debounce from "just-debounce-it";
-
+import useSEO from "hooks/useSEO";
+import { Helmet } from "react-helmet";
 export default function SearchResults({ params }) {
   const { keyword } = params;
   const { loading, gifs, setPage } = useGifs({ keyword });
@@ -13,6 +14,10 @@ export default function SearchResults({ params }) {
     externalRef: loading ? null : externalRef,
     once: false,
   });
+  const title = gifs
+    ? `${gifs.length} resultados de ${decodeURI(keyword)}`
+    : "";
+  //useSEO({ title });
   //Infinite scroll usando useNearScreen
 
   const deboundeHandleNextPage = useCallback(
@@ -31,6 +36,10 @@ export default function SearchResults({ params }) {
         <Spinner />
       ) : (
         <>
+          <Helmet>
+            <title>{title}</title>
+            <meta name="description" content={title}></meta>
+          </Helmet>
           <h3 className="App-title">{decodeURI(keyword)}</h3>
           <ListOfGifs gifs={gifs} />
           <div id="visor" ref={externalRef}></div>
