@@ -16,6 +16,7 @@ const ACTIONS_REDUCERS = {
     }),
 };
 const REDUCER = (state, action) => {
+    // Programacion funcional
     const actionReducer = ACTIONS_REDUCERS[action.type];
     return actionReducer ? actionReducer(state, action) : state;
 };
@@ -35,9 +36,9 @@ export default function useForm({ initialKeyword = "", initialRating = "g" } = {
         times,
         updateKeyword: (keyword) =>
             dispatch({
-                type: ACTIONS.UPDATE_RATING,
+                type: ACTIONS.UPDATE_KEYWORD,
                 payload: keyword,
             }),
-        updateRating: (keyword) => dispatch({ type: ACTIONS.UPDATE_KEYWORD, payload: keyword }),
+        updateRating: (rating) => dispatch({ type: ACTIONS.UPDATE_RATING, payload: rating }),
     };
 }
