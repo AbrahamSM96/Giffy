@@ -22,9 +22,10 @@ export default function Home() {
     <>
       <Helmet>
         <title>Home | Giffy</title>
+        <link rel="canonical" href="https://giffy.com"></link>
       </Helmet>
       <header className="o-header">
-        <SearchFrom onSubmit={handleSubmit} />
+        <SearchFrom />
       </header>
       <div className="App-wrapper">
         <div className="App-main">
