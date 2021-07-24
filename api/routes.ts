@@ -32,6 +32,7 @@ export const deleteFav = async (ctx: RouterContext) => {
 
 export const postFav = async (ctx: RouterContext) => {
     const { id } = ctx.params;
+    console.log(id, "id fav");
     const { username } = ctx.state.currentUser;
 
     const alreadyExist = favs[username].some((favId: string) => favId === id);
